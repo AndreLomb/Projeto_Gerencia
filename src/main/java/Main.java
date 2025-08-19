@@ -9,6 +9,8 @@ public class Main {
         Cliente c1 = new Cliente("José", 21);
         Gson gson = new Gson();
 
+        System.out.println("André adicionando algo!");
+
         e1.adicionarFuncionario(f1);
         e1.adicionarFuncionario(f2);
         e1.adicionarCliente(c1);
