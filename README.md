@@ -8,3 +8,6 @@ Necessário do Maven em sua última versão, assim como Gson 2.10.1 ou superior
 
 20:40 18/08
 Adicionado novo arquivo de texto na branch de desenvolvimento e feito merge com a main
+
+18:10 19/08
+Adicionado linha em Main.java para simular um conflito nos branches, o qual foi possível ser feito upload após merge correto.
