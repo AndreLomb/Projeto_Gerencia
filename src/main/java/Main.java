@@ -23,6 +23,11 @@ public class Main {
 
         System.out.println(c1.getHistoricoCompras());
 
+        System.out.println(f1.toString());
+        System.out.println(f2.toString());
+
+        System.out.println(c1.toString());
+
         String json = gson.toJson(f1);
         String json2 = gson.toJson(f2);
         String json3 = gson.toJson(c1);
