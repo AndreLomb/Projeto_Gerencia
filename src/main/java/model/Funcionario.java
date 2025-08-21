@@ -4,8 +4,8 @@ public class Funcionario extends Pessoa{
     private String cargo;
     private double salario;
 
-    public Funcionario(String nome, int idade, String cargo, double salario) {
-        super(nome, idade);
+    public Funcionario(Pessoa pessoa, String cargo, double salario) {
+        super(pessoa.getNome(), pessoa.getIdade());
         this.cargo = cargo;
         this.salario = salario;
     }

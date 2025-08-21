@@ -4,8 +4,10 @@ import model.*;
 public class Main {
     public static void main(String[] args) {
         Empresa e1 = new Empresa("Huawei");
-        Funcionario f1 = new Funcionario("Carlos", 24, "Quality Assurance", 3000);
-        Funcionario f2 = new Funcionario("Jonas", 30, "Sênior Engineer", 8000);
+        Pessoa p1 = new Pessoa("André", 22);
+        Pessoa p2 = new Pessoa("Maria", 20);
+        Funcionario f1 = new Funcionario(p1, "Quality Assurance", 3000);
+        Funcionario f2 = new Funcionario(p2, "Sênior Engineer", 8000);
         Cliente c1 = new Cliente("José", 21);
         Gson gson = new Gson();
 
