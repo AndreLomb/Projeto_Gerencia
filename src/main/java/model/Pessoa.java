@@ -1,8 +1,8 @@
 package model;
 
 public class Pessoa {
-    public String nome;
-    public int idade;
+    private String nome;
+    private int idade;
 
     public Pessoa(String nome, int idade) {
         this.idade = idade;
