@@ -10,7 +10,6 @@ public class ClienteTest {
     @Test
     public void testClienteDeclara(){
         Cliente c = new Cliente("Ricardo", 56);
-        assertEquals("", c.getNome());
+        assertEquals("Ricardo", c.getNome());
     }
-
 }
