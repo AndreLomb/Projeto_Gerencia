@@ -45,25 +45,10 @@ public class Empresa {
         }
     }
 
-    public void folhaDePagamento() {
-        System.out.println("Folha de pagamento da empresa " + nome + ":");
-        funcionarios.forEach(f -> System.out.println(f.getNome() + " - Salário: R$" + f.getSalario()));
-    }
-
-    public void listarFuncionarios() {
-        System.out.println("Funcionários da empresa " + nome + ":");
-        funcionarios.forEach(System.out::println);
-    }
-
     public void buscarFuncionarios(String nome){
         System.out.println("Buscando funcionários com o nome: " + nome);
         funcionarios.stream().filter(f -> f.getNome().equalsIgnoreCase(nome))
                 .forEach(System.out::println);
-    }
-
-    public void listarClientes() {
-        System.out.println("Clientes da empresa " + nome + ":");
-        clientes.forEach(System.out::println);
     }
 
     public String getNome() {
