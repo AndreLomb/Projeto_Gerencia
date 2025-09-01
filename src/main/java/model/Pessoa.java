@@ -5,8 +5,8 @@ public class Pessoa {
     private int idade;
 
     public Pessoa(String nome, int idade) {
-        this.idade = idade;
-        this.nome = nome;
+        setIdade(idade);
+        setNome(nome);
     }
 
     public String getNome() {
