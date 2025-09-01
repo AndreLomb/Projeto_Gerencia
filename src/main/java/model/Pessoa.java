@@ -26,8 +26,9 @@ public class Pessoa {
 
     public void setIdade(int idade) {
         this.idade = idade;
-        if(idade < 0)
-        throw new IllegalArgumentException("Idade não pode ser negativa");
+        if (idade < 0) {
+            throw new IllegalArgumentException("Idade não pode ser negativa");
+        }
     }
 
     @Override
