@@ -1,4 +1,4 @@
-package model;
+package br.inatel.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +9,7 @@ public class Empresa {
     private List<Cliente> clientes;
 
     public Empresa(String nome) {
-        this.nome = nome;
+        setNome(nome);
         this.funcionarios = new ArrayList<>();
         this.clientes = new ArrayList<>();
     }
@@ -50,5 +50,13 @@ public class Empresa {
     public void listarClientes() {
         System.out.println("Clientes da empresa " + nome + ":");
         clientes.forEach(System.out::println);
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 }

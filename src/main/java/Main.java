@@ -1,5 +1,8 @@
+import br.inatel.model.Cliente;
+import br.inatel.model.Empresa;
+import br.inatel.model.Funcionario;
+import br.inatel.model.Pessoa;
 import com.google.gson.Gson;
-import model.*;
 
 public class Main {
     public static void main(String[] args) {

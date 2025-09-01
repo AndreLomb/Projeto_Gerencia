@@ -1,4 +1,4 @@
-package model;
+package br.inatel.model;
 
 public class Pessoa {
     private String nome;

@@ -1,4 +1,4 @@
-package model;
+package br.inatel.model;
 
 public class Funcionario extends Pessoa{
     private String cargo;
