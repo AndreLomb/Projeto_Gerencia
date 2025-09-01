@@ -18,17 +18,31 @@ public class Empresa {
         funcionarios.add(f);
     }
 
-    public void checagemFuncionarios() {
+    public boolean checagemFuncionarios() {
         if (funcionarios.isEmpty()) {
             System.out.println("Nenhum funcionário cadastrado na empresa " + nome);
+            return false;
         } else {
             System.out.println("Funcionários cadastrados na empresa " + nome + ":");
             funcionarios.forEach(System.out::println);
+            return true;
         }
     }
 
     public void adicionarCliente(Cliente c) {
         clientes.add(c);
+    }
+
+    public boolean checagemCliente(){
+        if(clientes.isEmpty()){
+            System.out.println("Nenhum cliente passou pela empresa" + nome);
+            return false;
+        }
+        else{
+            System.out.println("Clientes que passaram pela empresa:");
+            clientes.forEach(System.out::println);
+            return true;
+        }
     }
 
     public void folhaDePagamento() {
