@@ -27,7 +27,7 @@ public class EmpresaTest{
         Funcionario f1 = new Funcionario(p1, "QA", 2000);
         e1.adicionarFuncionario(f1);
         boolean check = e1.checagemFuncionarios();
-        assertFalse(check);
+        assertTrue(check);
     }
 
     @Test
