@@ -11,3 +11,7 @@ Adicionado novo arquivo de texto na branch de desenvolvimento e feito merge com 
 
 18:10 19/08
 Adicionado linha em Main.java para simular um conflito nos branches, o qual foi possível ser feito upload após fazer um merge adequado.
+
+# Testes unitários
+01/09 20:26
+criados testes diversos para as classes do projeto, majoritariamente de inserção e/ou te lançamento de exceção.
