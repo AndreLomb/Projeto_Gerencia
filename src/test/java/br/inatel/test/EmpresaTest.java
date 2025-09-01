@@ -19,6 +19,4 @@ public class EmpresaTest{
         p.setNome("Huawei");
         assertEquals("Huawei", p.getNome());
     }
-
-
 }
