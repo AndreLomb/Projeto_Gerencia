@@ -19,6 +19,18 @@ public class Cliente extends Pessoa{
         return historicoCompras;
     }
 
+    public int getNumeroCompras() {
+        return historicoCompras.size();
+    }
+
+    public boolean temCompra(String produto) {
+        return historicoCompras.contains(produto);
+    }
+
+    public boolean removerCompra(String produto) {
+        return historicoCompras.remove(produto);
+    }
+
     @Override
     public String toString() {
         return super.toString() + " - Compras: " + historicoCompras;
