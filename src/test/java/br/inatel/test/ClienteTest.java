@@ -78,4 +78,40 @@ public class ClienteTest {
         assertEquals(2, c.getNumeroCompras());
     }
 
+    @Test
+    public void testToStringCliente(){
+        Cliente c = new Cliente("Lucas", 31);
+        c.adicionarCompra("Livro Java");
+        c.adicionarCompra("Curso Python");
+        
+        String resultado = c.toString();
+        assertTrue(resultado.contains("Lucas"));
+        assertTrue(resultado.contains("31 anos"));
+        assertTrue(resultado.contains("Compras:"));
+        assertTrue(resultado.contains("Livro Java"));
+        assertTrue(resultado.contains("Curso Python"));
+    }
+
+    @Test
+    public void testProdutosDuplicados(){
+        Cliente c = new Cliente("Fernanda", 27);
+        c.adicionarCompra("Café");
+        c.adicionarCompra("Açúcar");
+        c.adicionarCompra("Café"); // produto duplicado
+        
+        assertEquals(3, c.getNumeroCompras()); // deve contar produtos duplicados
+        assertTrue(c.temCompra("Café"));
+        assertTrue(c.temCompra("Açúcar"));
+        
+        // Remove apenas a primeira ocorrência do produto duplicado
+        assertTrue(c.removerCompra("Café"));
+        assertEquals(2, c.getNumeroCompras());
+        assertTrue(c.temCompra("Café")); // ainda deve ter o segundo "Café"
+        
+        // Remove a segunda ocorrência
+        assertTrue(c.removerCompra("Café"));
+        assertEquals(1, c.getNumeroCompras());
+        assertFalse(c.temCompra("Café")); // agora não deve mais ter "Café"
+    }
+
 }
