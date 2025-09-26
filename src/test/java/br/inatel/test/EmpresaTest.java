@@ -24,7 +24,7 @@ public class EmpresaTest{
     public void testChecagemFuncionarios(){
         Empresa e1 = new Empresa("Huawei");
         Pessoa p1 = new Pessoa("Jonas", 33);
-        Funcionario f1 = new Funcionario(p1, "QA", 2000);
+        Funcionario f1 = new Funcionario(p1, "QA", 2000, 127, "Integral");
         e1.adicionarFuncionario(f1);
         boolean check = e1.checagemFuncionarios();
         assertTrue(check);
@@ -37,6 +37,6 @@ public class EmpresaTest{
         c1.adicionarCompra("Dell Inspiron 7020");
         e1.adicionarCliente(c1);
         boolean checar = e1.checagemCliente();
-        assertFalse(checar);
+        assertTrue(checar);
     }
 }
