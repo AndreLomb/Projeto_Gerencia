@@ -31,4 +31,8 @@ jobs:
       run: |
         cd Projeto_Gerencia
         mvn clean install -DskipTests
-        
+    - name: Upload build artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: gerencia-artifact
+        path: Projeto_Gerencia/target/*.jar
