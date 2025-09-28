@@ -30,6 +30,5 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: |
-        cd Projeto_Gerencia
         mvn clean install -DskipTests
         
