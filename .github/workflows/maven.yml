@@ -38,8 +38,6 @@ jobs:
         path: target/*.jar
   
   test:
-
-    needs: build
     runs-on: ubuntu-latest
 
     steps:
