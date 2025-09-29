@@ -62,7 +62,7 @@ jobs:
     needs: test
 
     runs-on: ubuntu-latest
-    
+
     env:
       COMMIT_CODE: ${{ github.sha }}
       DESTINATARIO: ${{ vars.EMAIL_DESTINATARIO }} 
@@ -82,5 +82,5 @@ jobs:
         env:
           REPORT_URL: ${{ steps.gerar-link.outputs.url }}
         run: |
-          printf "Olá,\n\nOs testes passaram com sucesso.\n\nCommit: %s\n\nRelatório:\n%s\n\nAtenciosamente,\nGitHub Actions\n" "$COMMIT_CODE" "$REPORT_URL" \
-            | mail -s "Relatório de Testes - Commit $COMMIT_CODE" "$DESTINATARIO"
+          echo "Olá, Os testes passaram com sucesso. Commit: Relatório: Atenciosamente, GitHub Actions " "$COMMIT_CODE" "$REPORT_URL" \
+            | mail -s "Relatório de Testes - Commit $COMMIT_CODE" "guiobrito3010@gmail.com"
