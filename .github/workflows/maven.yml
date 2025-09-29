@@ -50,7 +50,7 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-    - name: Build with Maven
+    - name: Run test
       run: |
         mvn clean test site
     - name: Upload build artifact
