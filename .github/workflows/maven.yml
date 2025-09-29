@@ -83,4 +83,4 @@ jobs:
           REPORT_URL: ${{ steps.gerar-link.outputs.url }}
         run: |
           echo "Olá, Os testes passaram com sucesso. Commit: Relatório: Atenciosamente, GitHub Actions " "$COMMIT_CODE" "$REPORT_URL" \
-            | mail -s "Relatório de Testes - Commit $COMMIT_CODE" "guiobrito3010@gmail.com"
+            | mail -s "Relatório de Testes - Commit $COMMIT_CODE" "$DESTINATARIO"
