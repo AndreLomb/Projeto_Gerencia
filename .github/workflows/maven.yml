@@ -59,27 +59,26 @@ jobs:
   
   send-email:
 
-  needs: test
+    needs: test
 
-  runs-on: ubuntu-latest
-
-  env:
-    COMMIT_CODE: ${{ github.sha }}
-    DESTINATARIO: ${{ vars.EMAIL_DESTINATARIO }}
+    runs-on: ubuntu-latest
     
-  steps:
-    - name: Instalar mailutils
-      run: sudo apt update && sudo apt install -y mailutils
+    env:
+      COMMIT_CODE: ${{ github.sha }}
+      DESTINATARIO: ${{ vars.EMAIL_DESTINATARIO }}
+    steps:
+      - name: Instalar mailutils
+        run: sudo apt update && sudo apt install -y mailutils
 
-    - name: Gerar link para o artifact
-      id: gerar-link
-      run: |
-        echo "url=https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" >> $GITHUB_OUTPUT
+      - name: Gerar link para o artifact
+        id: gerar-link
+        run: |
+          echo "url=https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" >> $GITHUB_OUTPUT
 
-    - name: Enviar email com link do relatório
-      run: |
-        echo "Os testes passaram para o commit $COMMIT_CODE
+      - name: Enviar email com link do relatório
+        run: |
+          echo "Os testes passaram para o commit $COMMIT_CODE
 
-      Você pode ver o relatório de testes aqui:
-      ${{ steps.gerar-link.outputs.url }}
-      " | mail -s "Relatório de Testes - Commit $COMMIT_CODE" "$DESTINATARIO"
+Você pode ver o relatório de testes aqui:
+${{ steps.gerar-link.outputs.url }}
+" | mail -s "Relatório de Testes - Commit $COMMIT_CODE" "$DESTINATARIO"
