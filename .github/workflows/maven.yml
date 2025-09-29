@@ -65,20 +65,22 @@ jobs:
     
     env:
       COMMIT_CODE: ${{ github.sha }}
-      DESTINATARIO: ${{ vars.EMAIL_DESTINATARIO }}
+      DESTINATARIO: ${{ vars.EMAIL_DESTINATARIO }} 
+      
     steps:
       - name: Instalar mailutils
-        run: sudo apt update && sudo apt install -y mailutils
+        run: |
+          sudo apt update
+          sudo apt install -y mailutils
 
-      - name: Gerar link para o artifact
+      - name: Gerar link para a página do run (onde está o artifact)
         id: gerar-link
         run: |
-          echo "url=https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" >> $GITHUB_OUTPUT
+          echo "url=https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" >> "$GITHUB_OUTPUT"
 
       - name: Enviar email com link do relatório
+        env:
+          REPORT_URL: ${{ steps.gerar-link.outputs.url }}
         run: |
-          echo "Os testes passaram para o commit $COMMIT_CODE
-
-Você pode ver o relatório de testes aqui:
-${{ steps.gerar-link.outputs.url }}
-" | mail -s "Relatório de Testes - Commit $COMMIT_CODE" "$DESTINATARIO"
+          printf "Olá,\n\nOs testes passaram com sucesso.\n\nCommit: %s\n\nRelatório:\n%s\n\nAtenciosamente,\nGitHub Actions\n" "$COMMIT_CODE" "$REPORT_URL" \
+            | mail -s "Relatório de Testes - Commit $COMMIT_CODE" "$DESTINATARIO"
