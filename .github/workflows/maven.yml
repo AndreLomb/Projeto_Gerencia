@@ -80,7 +80,7 @@ jobs:
       - name: Enviar email com link do relatório
         env:
           REPORT_URL: ${{ steps.gerar-link.outputs.url }}
-          # Lendo a lista de e-mails diretamente do GitHub Secret que você criou.
+      
           RECIPIENTS: ${{ secrets.DEV_EMAILS }}
         run: |
           for email in $(echo $RECIPIENTS | tr ',' ' '); do
