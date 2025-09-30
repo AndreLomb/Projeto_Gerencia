@@ -65,7 +65,6 @@ jobs:
 
     env:
       COMMIT_CODE: ${{ github.sha }}
-      DESTINATARIO: ${{ vars.EMAIL_DESTINATARIO }} 
       
     steps:
       - name: Instalar mailutils
@@ -81,6 +80,11 @@ jobs:
       - name: Enviar email com link do relatório
         env:
           REPORT_URL: ${{ steps.gerar-link.outputs.url }}
+          # Lendo a lista de e-mails diretamente do GitHub Secret que você criou.
+          RECIPIENTS: ${{ secrets.DEV_EMAILS }}
         run: |
-          echo "Olá, Os testes passaram com sucesso. Commit: Relatório: Atenciosamente, GitHub Actions " "$COMMIT_CODE" "$REPORT_URL" \
-            | mail -s "Relatório de Testes - Commit $COMMIT_CODE" "$DESTINATARIO"
+          for email in $(echo $RECIPIENTS | tr ',' ' '); do
+            MESSAGE_BODY="Olá, os testes passaram com sucesso. Commit: $COMMIT_CODE. Relatório: $REPORT_URL. Atenciosamente, GitHub Actions"
+            
+            echo $MESSAGE_BODY | mail -s "Relatório de Testes - Commit: $COMMIT_CODE" "$email"
+          done
